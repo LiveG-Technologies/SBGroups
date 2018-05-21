@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SBGroups</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBjVAEBlaOegRvvQ5KwcrEmki2aLcCxP-c",
+                authDomain: "liveg-sbgroups.firebaseapp.com",
+                databaseURL: "https://liveg-sbgroups.firebaseio.com",
+                projectId: "liveg-sbgroups",
+                storageBucket: "liveg-sbgroups.appspot.com",
+                messagingSenderId: "384801166866"
+            };
+            firebase.initializeApp(config);
+        </script>
+    </head>
+    <body>
+        <div id="signIn">
+            <h1>Sign into SBGroups</h1>
+            <form>
+                <input type="email" placeholder="E-mail" id="user"></input><br>
+                <input type="password" placeholder="Password" id="pass"></input>
+            </form><br>
+            <button onclick="window.location.href = 'index.html';" class="bad">Cancel</button><button onclick="signIn();">Sign In</button><button class="secondary" onclick="signOutBefore();">Sign Up</button><br>
+        </div>
+        <div id="signUp">
+            <h1>Sign up for SBGroups</h1>
+            <form autocomplete="off"><input placeholder="Scratch Username" id="name" autocomplete="off"></input></form><br>
+            <button onclick="signUp();">Sign Up</button><button class="bad" onclick="reset();">Cancel</button><br>
+        </div>
+        <div id="notsupported">
+            <h1>Sorry! JS not supported.</h1>
+            <h2>JavaScript is not supported on this device. If you've turned it off, please turn it on!</h2>
+        </div>
+        <p id="error"></p>
+        <div id="pend"></div>
+    </body>
+    <script src="signin.js"></script>
+</html>
