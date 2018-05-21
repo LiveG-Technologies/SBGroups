@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scratch3Combiner</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+        <script src="jszip.min.js"></script>
+        <script src="jszip-utils.min.js"></script>
+        <script src="FileSaver.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBjVAEBlaOegRvvQ5KwcrEmki2aLcCxP-c",
+                authDomain: "liveg-sbgroups.firebaseapp.com",
+                databaseURL: "https://liveg-sbgroups.firebaseio.com",
+                projectId: "liveg-sbgroups",
+                storageBucket: "liveg-sbgroups.appspot.com",
+                messagingSenderId: "384801166866"
+            };
+            firebase.initializeApp(config);
+        </script>
+    </head>
+    <body>
+        <h3>Choose local .sb3 files</h3>
+        <p class="note">Note: your browser will process the zip file, don't choose a file too big!</p>
+        <input type="file" id="file" name="file" multiple /><br />
+
+        <div id="result_block" class="hidden">
+        <h3>Content:</h3>
+        <div id="result"></div>
+        </div>
+        <button onclick="prepareZip();">Generate</button>
+        <script src="script.js"></script>
+    </body>
+</html>
