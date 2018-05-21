@@ -25,6 +25,7 @@
         </script>
     </head>
     <body>
+        <button onclick="signOut();">Sign Out</button>
         <h3>Choose local .sb3 files</h3>
         <p class="note">Note: your browser will process the zip file, don't choose a file too big!</p>
         <input type="file" id="file" name="file" multiple /><br />
@@ -35,5 +36,6 @@
         </div>
         <button onclick="prepareZip();">Generate</button>
     </body>
+    <script src="generator.js"></script>
     <script src="script.js"></script>
 </html>
