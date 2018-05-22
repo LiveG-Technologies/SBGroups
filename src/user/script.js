@@ -65,9 +65,9 @@ function setPpic(data) {
     var file = dataURItoBlob(data);
     firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
         console.log("Uploaded profile picture successfully!");
+        
+        refreshPpic();
     });
-
-    refreshPpic();
 }
 
 function setName(data) {
