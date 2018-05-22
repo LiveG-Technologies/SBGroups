@@ -58,7 +58,7 @@ function signOut() {
 function uploadPpic(data) {
     var file = dataURItoBlob(data);
     firebase.storage().ref().child("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
-    console.log('Uploaded a blob or file!');
+    console.log("Uploaded profile picture successfully!");
     });
 }
 
