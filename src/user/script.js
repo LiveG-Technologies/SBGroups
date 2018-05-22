@@ -31,9 +31,7 @@ function getURLParameter(name) {
 function change(user) {
     if (user && user.uid != null) {
         // Signed in.
-        firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
-            $(".ppic").attr("src", data);
-        });
+        refreshPpic();
 
         firebase.database().ref("users/" + currentUid + "/_settings/name").on("value", function(snapshot) {
             $(".name").text(snapshot.val());
@@ -57,11 +55,19 @@ function signOut() {
     firebase.auth().signOut();
 }
 
+function refreshPpic() {
+    firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
+        $(".ppic").attr("src", data);
+    });
+}
+
 function setPpic(data) {
     var file = dataURItoBlob(data);
     firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
-    console.log("Uploaded profile picture successfully!");
+        console.log("Uploaded profile picture successfully!");
     });
+
+    refreshPpic();
 }
 
 function setName(data) {
