@@ -31,11 +31,13 @@ function getURLParameter(name) {
 function change(user) {
     if (user && user.uid != null) {
         // Signed in.
-        // firebase.database().ref("users/" + user.uid + "/_settings/name").on("value", function(snapshot) {
-        //     if (getURLParameter("test") != "true") {
-        //         $(".myname").text(snapshot.val());
-        //     }
-        // });
+        firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
+            $(".ppic").attr("src", data);
+        });
+
+        firebase.database().ref("users/" + currentUid + "/_settings/name").on("value", function(snapshot) {
+            $(".name").text(snapshot.val());
+        });
     } else {
         // Signed out.
         if (getURLParameter("test") != "true") {
@@ -80,12 +82,4 @@ $("#ppicFile").on("change", function(evt) {
     var files = evt.target.files;
     console.log(files);
     handleFile(files[0]);
-});
-
-firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
-    $(".ppic").attr("src", data);
-});
-
-firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").on("value", function(snapshot) {
-    $(".name").text(snapshot.val());
 });
