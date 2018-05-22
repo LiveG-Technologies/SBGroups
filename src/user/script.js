@@ -55,11 +55,15 @@ function signOut() {
     firebase.auth().signOut();
 }
 
-function uploadPpic(data) {
+function setPpic(data) {
     var file = dataURItoBlob(data);
-    firebase.storage().ref().child("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
+    firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
     console.log("Uploaded profile picture successfully!");
     });
+}
+
+function setName(data) {
+    firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(document.getElementById("nameSet").value);
 }
 
 $("#ppicFile").on("change", function(evt) {
@@ -69,11 +73,19 @@ $("#ppicFile").on("change", function(evt) {
         fileData.readAsDataURL(file);
         fileData.onload = function(evt) {
             console.log(evt.target.result);
-            uploadPpic(evt.target.result);
+            setPpic(evt.target.result);
         }
     }
 
     var files = evt.target.files;
     console.log(files);
     handleFile(files[0]);
+});
+
+firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
+    $(".ppic").attr("src", data);
+});
+
+firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").on("value", function(snapshot) {
+    $(".name").text(snapshot.val());
 });
