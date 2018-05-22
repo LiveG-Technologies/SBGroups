@@ -92,8 +92,10 @@ $("#file").on("change", function(evt) {
                         text: zipEntry.name
                     }));
 
-                    zipEntry.async("text").then(function(data) {
-                        finalZip.file(zipEntry.name, data);
+                    zipEntry.async("base64").then(function(data) {
+                        var reader = new FileReader();
+
+                        finalZip.file(zipEntry.name, data, {base64: true});
                     });
                 }
             });
