@@ -8,6 +8,8 @@
         <script src="jszip-utils.min.js"></script>
         <script src="FileSaver.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <link rel="stylesheet" href="../font.css">
+        <link rel="stylesheet" href="../style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
@@ -25,16 +27,29 @@
         </script>
     </head>
     <body>
-        <button onclick="signOut();">Sign Out</button> <a href="settings.html">Settings</a>
-        <h3>Choose local .sb3 files</h3>
-        <p class="note">Note: your browser will process the zip file, don't choose a file too big!</p>
-        <input type="file" id="file" name="file" multiple /><br />
+        <header>
+            <a href="index.html"><img src="../logoSecondary.png" class="headerLogo" /></a>
+            <div class="floatRight">
+                <button onclick="window.location.href = 'settings.html';" class="secondary">Settings</button>
+                <button onclick="signOut();" class="white">Sign Out</button>
+            </div>
+            <div class="floatRight">
+                <img src="user.png" class="ppic header" height="200" />
+            </div>
+        </header>
+        <div class="content">
+            <div class="card">
+                <h2>Choose local .sb3 files</h2>
+                <p class="note">Note: your browser will process the zip file, don't choose a file too big!</p>
+                <input type="file" id="file" name="file" multiple /><br />
 
-        <div id="result_block" class="hidden">
-        <h3>Content:</h3>
-        <div id="result"></div>
+                <div id="result_block" class="hidden">
+                <h3>Content:</h3>
+                <div id="result"></div>
+                </div>
+                <button onclick="prepareZip();">Generate</button>
+            </div>
         </div>
-        <button onclick="prepareZip();">Generate</button>
     </body>
     <script src="generator.js"></script>
     <script src="script.js"></script>

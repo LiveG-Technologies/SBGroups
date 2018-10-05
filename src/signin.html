@@ -2,7 +2,14 @@
 <html>
     <head>
         <title>SBGroups</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+        <script src="jszip.min.js"></script>
+        <script src="jszip-utils.min.js"></script>
+        <script src="FileSaver.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <link rel="stylesheet" href="font.css">
+        <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
@@ -20,25 +27,35 @@
         </script>
     </head>
     <body>
-        <div id="signIn">
-            <h1>Sign into SBGroups</h1>
-            <form>
-                <input type="email" placeholder="E-mail" id="user"></input><br>
-                <input type="password" placeholder="Password" id="pass"></input>
-            </form><br>
-            <button onclick="window.location.href = 'index.html';" class="bad">Cancel</button><button onclick="signIn();">Sign In</button><button class="secondary" onclick="signOutBefore();">Sign Up</button><br>
+        <header>
+            <a href="index.html"><img src="logoSecondary.png" class="headerLogo" /></a>
+            <div class="floatRight">
+                <button onclick="window.location.href = 'index.html';" class="white">Back</button>
+            </div>
+        </header>
+        <div class="content">
+            <div class="card">
+                <div id="signIn">
+                    <h1>Sign into SBGroups</h1>
+                    <form>
+                        <input type="email" placeholder="E-mail" id="user"></input><br>
+                        <input type="password" placeholder="Password" id="pass"></input>
+                    </form><br>
+                    <button onclick="window.location.href = 'index.html';" class="secondary">Cancel</button><button onclick="signIn();">Sign In</button><button class="secondary" onclick="signOutBefore();">Sign Up</button><br>
+                </div>
+                <div id="signUp">
+                    <h1>Sign up for SBGroups</h1>
+                    <form autocomplete="off"><input placeholder="Scratch Username" id="name" autocomplete="off"></input></form><br>
+                    <button class="secondary" onclick="reset();">Cancel</button><button onclick="signUp();">Sign Up</button><br>
+                </div>
+                <div id="notsupported">
+                    <h1>Sorry! JS not supported.</h1>
+                    <h2>JavaScript is not supported on this device. If you've turned it off, please turn it on!</h2>
+                </div>
+                <p id="error"></p>
+                <div id="pend"></div>
+            </div>
         </div>
-        <div id="signUp">
-            <h1>Sign up for SBGroups</h1>
-            <form autocomplete="off"><input placeholder="Scratch Username" id="name" autocomplete="off"></input></form><br>
-            <button class="bad" onclick="reset();">Cancel</button><button onclick="signUp();">Sign Up</button><br>
-        </div>
-        <div id="notsupported">
-            <h1>Sorry! JS not supported.</h1>
-            <h2>JavaScript is not supported on this device. If you've turned it off, please turn it on!</h2>
-        </div>
-        <p id="error"></p>
-        <div id="pend"></div>
     </body>
     <script src="signin.js"></script>
 </html>

@@ -1,0 +1,110 @@
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffe5e5;
+    text-align: center;
+}
+
+header {
+    margin: -8px;
+    padding: 5px;
+    background-color: #ff5454;
+    text-align: left;
+}
+
+button {
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ff5454;
+    color: white;
+    border: 2px solid #ff4747;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.secondary {
+    background-color: #ff7070;
+}
+
+button.white {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+input {
+    width: 80%;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5px;
+}
+
+hr {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.floatRight {
+    float: right;
+}
+
+.content {
+    margin: -8px;
+    margin-top: calc(10vh + 10px);
+}
+
+.card {
+    width: 60vw;
+    margin-left: calc(20vw - 22px);
+    margin-right: calc(20vw - 22px);
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #ffefef;
+    border-radius: 10px;
+}
+
+.ppic.header {
+    padding: 2px;
+    margin: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+}
+
+.headerLogo {
+    height: 40px;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 80vw;
+        margin-left: calc(10vw - 22px);
+        margin-right: calc(10vw - 22px);
+    }
+}
+
+@media (max-width: 374px) {
+    .ppic.header {
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .headerLogo {
+        height: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

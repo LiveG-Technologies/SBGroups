@@ -8,6 +8,8 @@
         <script src="jszip-utils.min.js"></script>
         <script src="FileSaver.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <link rel="stylesheet" href="../font.css">
+        <link rel="stylesheet" href="../style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
@@ -21,15 +23,33 @@
                 storageBucket: "liveg-sbgroups.appspot.com",
                 messagingSenderId: "384801166866"
             };
-        firebase.initializeApp(config);
+            firebase.initializeApp(config);
         </script>
     </head>
     <body>
-        Current Profile picture: <img src="user.png" class="ppic" height="200" /><br />
-        Upload Profile picture: <input type="file" id="ppicFile" name="file" accept="image/png" /><br />
-        Current Scratch Username: <strong class="name">Loading...</strong><br />
-        Scratch Username: <input id="nameSet" /><button onclick="setName($('#nameSet').val());">Set</button><br />
-        <a href="index.html">Home</a>
+        <header>
+            <a href="index.html"><img src="../logoSecondary.png" class="headerLogo" /></a>
+            <div class="floatRight">
+                <button onclick="signOut();" class="secondary">Sign Out</button>
+                <button onclick="window.location.href = 'index.html';" class="white">Back</button>
+            </div>
+            <div class="floatRight">
+                <img src="user.png" class="ppic header" height="200" />
+            </div>
+        </header>
+        <div class="content">
+            <div class="card">
+                <h2>Settings</h2>
+                Current Profile picture:<br><img src="user.png" class="ppic" height="80" /><br>
+                Upload Profile picture:<br><input type="file" id="ppicFile" name="file" accept="image/png" />
+                <hr>
+                Current Scratch Username: <strong class="name">Loading...</strong><br>
+                New Scratch Username:<br><input id="nameSet" />
+                <hr>
+                <button onclick="window.location.href = 'index.html';" class="secondary">Back</button>
+                <button onclick="setName($('#nameSet').val());">Set</button>
+            </div>
+        <div>
     </body>
     <script src="script.js"></script>
 </html>

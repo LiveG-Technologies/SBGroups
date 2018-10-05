@@ -8,6 +8,8 @@
         <script src="jszip-utils.min.js"></script>
         <script src="FileSaver.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <link rel="stylesheet" href="font.css">
+        <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
@@ -25,7 +27,26 @@
         </script>
     </head>
     <body>
-        <a href="signin.html">Sign In</a>
+        <header>
+            <a href="index.html"><img src="logoSecondary.png" class="headerLogo" /></a>
+            <div class="floatRight">
+                <button onclick="window.location.href = 'signin.html';" class="white">Sign In</button>
+            </div>
+        </header>
+        <div class="content">
+            <div class="card">
+                <h1>Welcome to SBGroups!</h1>
+                <h2>SBGroups is the place for collaboration for Scratch 3.</h2>
+                <p>
+                    Make whatever you want with your team. SBGroups offers the
+                    tools to help you make the best Scratch project out there.
+                    We've made SBGroups so that it is easy to merge different
+                    Scratch projects together and review their changes.
+                </p>
+                <p><strong>Ready? Get started!</strong></p>
+                <button onclick="window.location.href = 'signin.html';">Sign In</button>
+            </div>
+        </div>
     </body>
     <script src="script.js"></script>
 </html>
