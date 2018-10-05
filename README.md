@@ -1,2 +1,2 @@
 # SBGroups
-SBGroups website and UI
+SBGroups website and UI.
